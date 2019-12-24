@@ -15,6 +15,8 @@ export const Items = ({ items }: ItemsProps) => {
           display: flex;
           flex-direction: row;
           padding: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
         }
       `}</style>
     </div>
@@ -53,7 +55,7 @@ export const Item = ({ item }: ItemProps) => {
           border: 2px solid #d1d1d1;
           overflow: hidden;
           border-radius: 0.5rem;
-          width: calc(100% / 4);
+          width: 40%;
           margin: 0.5rem;
           cursor: pointer;
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.125);
@@ -134,13 +136,25 @@ export const Item = ({ item }: ItemProps) => {
         }
 
         .item-overlay-link i {
-          font-size: 8rem;
+          font-size: 4rem;
         }
 
         .item-overlay-link:hover {
           background: white;
           color: #ad2a3b;
           padding: 0.125rem;
+        }
+
+        @media (min-width: 640px) {
+          .item {
+            max-width: 23%;
+          }
+        }
+
+        @media (mid-width: 768px) {
+          .item-overlay-link i {
+            font-size: 8rem;
+          }
         }
       `}</style>
     </div>
