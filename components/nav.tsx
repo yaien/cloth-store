@@ -21,6 +21,7 @@ const Nav = () => (
         display: flex;
         align-items: center;
         background-color: #ededed;
+        z-index: 50;
       }
 
       .nav-logo {
@@ -40,6 +41,7 @@ const Nav = () => (
           margin: 0px;
           background-color: #f7f7f7;
           height: 100%;
+          font-family: "Raleway", sans-serif;
         }
       `}
     </style>
