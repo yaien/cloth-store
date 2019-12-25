@@ -15,7 +15,6 @@ interface DetailProps {
 }
 
 const Detail = ({ item, ...rest }: DetailProps) => {
-  console.log(rest);
   if (!item) {
     return <Error statusCode={404} />;
   }
