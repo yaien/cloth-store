@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "strictNullChecks": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "noUnusedLocals": true
   },
   "exclude": ["node_modules"],
   "include": ["api.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"]

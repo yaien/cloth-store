@@ -1,7 +1,6 @@
-import nookies from "nookies";
-import NextApp, { AppContext } from "next/app";
-import { Guest } from "../context/guest";
 import session from "../core/session";
+import NextApp, { AppContext } from "next/app";
+import { Cart } from "../context/cart";
 
 class App extends NextApp<{ guest: API.Guest }> {
   // Only uncomment this method if you have blocking data requirements for
@@ -19,9 +18,9 @@ class App extends NextApp<{ guest: API.Guest }> {
   render() {
     const { Component, pageProps, guest } = this.props;
     return (
-      <Guest guest={guest}>
+      <Cart guest={guest}>
         <Component {...pageProps} />
-      </Guest>
+      </Cart>
     );
   }
 }

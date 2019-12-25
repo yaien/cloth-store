@@ -1,6 +1,5 @@
 import nookies from "nookies";
 import guests from "./guests";
-import { AppContext } from "next/app";
 import { NextPageContext } from "next";
 
 export default {
@@ -15,7 +14,7 @@ export default {
       nookies.set(ctx, "guest", guest.id, {
         path: "/",
         sameSite: true,
-        maxAge: 60 * 24 * 60 * 60,
+        maxAge: 3600,
         httpOnly: true
       });
     } finally {

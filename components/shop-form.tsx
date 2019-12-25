@@ -45,7 +45,7 @@ const ShopForm = ({ item }: ShopFormProps) => {
         value={size?.label}
       >
         {item.sizes.map(size => (
-          <option>{size.label}</option>
+          <option key={size.label}>{size.label}</option>
         ))}
       </Select>
       <Input
