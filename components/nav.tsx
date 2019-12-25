@@ -6,7 +6,9 @@ const Nav = () => (
   <nav>
     <div className="nav-content">
       <div className="nav-logo">
-        <img src="/static/logo-512.png" height="100%"></img>
+        <Link href="/">
+          <img src="/static/logo-512.png" height="100%"></img>
+        </Link>
       </div>
       <div className="grow"></div>
       <ShoppingButton items={1} />
@@ -28,6 +30,7 @@ const Nav = () => (
         height: 100%;
         width: auto;
         margin: 0px;
+        cursor: pointer;
       }
 
       .grow {

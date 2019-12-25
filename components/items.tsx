@@ -15,6 +15,8 @@ export const Items = ({ items }: ItemsProps) => {
           display: flex;
           flex-direction: row;
           padding: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
         }
       `}</style>
     </div>
@@ -29,35 +31,36 @@ export const Item = ({ item }: ItemProps) => {
   const img =
     "https://assets.viralstyle.com/campaigns/76eb8a7b-9197-b8c4-fd94-5f8eb60ca631/Vk8V0z-DVm8MK-6b2B3J-front-large.jpg";
   return (
-    <div className="item">
-      <div className="item-picture">
-        <div className="item-overlay">
-          <div className="item-overlay-content">
-            <div className="item-overlay-background"></div>
-            <Link href={"/items/" + item.slug}>
-              <a className="item-overlay-link" title="VER">
-                <i className="material-icons">add</i>
-              </a>
-            </Link>
+    <>
+      <Link href={"/items/" + item.slug}>
+        <div className="item">
+          <div className="item-picture">
+            <div className="item-overlay">
+              <div className="item-overlay-content">
+                <div className="item-overlay-background" />
+                <div className="item-overlay-link">
+                  <i className="material-icons">add</i>
+                </div>
+              </div>
+            </div>
+            <img src={img} alt="" />
+          </div>
+          <div className="item-info">
+            <h4 className="item-name">{item.name}</h4>
+            <span className="item-price">CO${item.price.toLocaleString()}</span>
           </div>
         </div>
-        <img src={img} alt="" />
-      </div>
-      <div className="item-info">
-        <h4 className="item-name">{item.name}</h4>
-        <span className="item-price">CO${item.price.toLocaleString()}</span>
-      </div>
-
+      </Link>
       <style jsx>{`
         .item {
           border: 2px solid #d1d1d1;
           overflow: hidden;
           border-radius: 0.5rem;
-          width: calc(100% / 4);
+          width: 40%;
           margin: 0.5rem;
-          cursor: pointer;
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.125);
           background-color: #e1e1e1;
+          cursor: pointer;
         }
 
         .item:hover {
@@ -134,7 +137,7 @@ export const Item = ({ item }: ItemProps) => {
         }
 
         .item-overlay-link i {
-          font-size: 8rem;
+          font-size: 4rem;
         }
 
         .item-overlay-link:hover {
@@ -142,8 +145,20 @@ export const Item = ({ item }: ItemProps) => {
           color: #ad2a3b;
           padding: 0.125rem;
         }
+
+        @media (min-width: 640px) {
+          .item {
+            max-width: 23%;
+          }
+        }
+
+        @media (mid-width: 768px) {
+          .item-overlay-link i {
+            font-size: 8rem;
+          }
+        }
       `}</style>
-    </div>
+    </>
   );
 };
 

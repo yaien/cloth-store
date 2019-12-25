@@ -13,20 +13,17 @@ interface HomeProps {
 
 const Home = ({ items }: HomeProps) => {
   return (
-    <div>
+    <Content>
       <Head title="Fashion Shop" />
-      <Nav />
-      <Content>
-        <Banner />
-        <Search />
-        <Items items={items} />
-      </Content>
-    </div>
+      <Banner />
+      <Search />
+      <Items items={items} />
+    </Content>
   );
 };
 
 Home.getInitialProps = async (): Promise<HomeProps> => {
-  const res = await axios.get("/api/v1/items");
+  const res = await axios.get("/api/v1/public/items");
   return { items: res.data };
 };
 
