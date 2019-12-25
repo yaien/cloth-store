@@ -27,30 +27,27 @@ export interface ItemProps {
   item: API.Item;
 }
 
-export const Item = ({ item }: ItemProps) => {
-  const img =
-    "https://assets.viralstyle.com/campaigns/76eb8a7b-9197-b8c4-fd94-5f8eb60ca631/Vk8V0z-DVm8MK-6b2B3J-front-large.jpg";
-  return (
-    <>
-      <Link href={"/items/" + item.slug}>
-        <div className="item">
-          <div className="item-picture">
-            <div className="item-overlay">
-              <div className="item-overlay-content">
-                <div className="item-overlay-background" />
-                <div className="item-overlay-link">
-                  <i className="material-icons">add</i>
-                </div>
-              </div>
+const img =
+  "https://assets.viralstyle.com/campaigns/76eb8a7b-9197-b8c4-fd94-5f8eb60ca631/Vk8V0z-DVm8MK-6b2B3J-front-large.jpg";
+
+export const Item = ({ item }: ItemProps) => (
+  <Link href={"/items/" + item.slug} as={"/items/" + item.slug}>
+    <div className="item">
+      <div className="item-picture">
+        <div className="item-overlay">
+          <div className="item-overlay-content">
+            <div className="item-overlay-background" />
+            <div className="item-overlay-link">
+              <i className="material-icons">add</i>
             </div>
-            <img src={img} alt="" />
-          </div>
-          <div className="item-info">
-            <h4 className="item-name">{item.name}</h4>
-            <span className="item-price">CO${item.price.toLocaleString()}</span>
           </div>
         </div>
-      </Link>
+        <img src={img} alt="" />
+      </div>
+      <div className="item-info">
+        <h4 className="item-name">{item.name}</h4>
+        <span className="item-price">CO${item.price.toLocaleString()}</span>
+      </div>
       <style jsx>{`
         .item {
           border: 2px solid #d1d1d1;
@@ -158,8 +155,8 @@ export const Item = ({ item }: ItemProps) => {
           }
         }
       `}</style>
-    </>
-  );
-};
+    </div>
+  </Link>
+);
 
 export default Items;

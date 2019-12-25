@@ -5,7 +5,6 @@ import { NextPageContext } from "next";
 export default {
   async guest(ctx?: NextPageContext): Promise<API.Guest> {
     const cookies = nookies.get(ctx);
-    console.log(cookies);
     let guest: API.Guest;
     try {
       if (!cookies.guest) throw Error();
