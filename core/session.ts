@@ -3,8 +3,9 @@ import guests from "./guests";
 import { NextPageContext } from "next";
 
 export default {
-  async guest(ctx: NextPageContext): Promise<API.Guest> {
+  async guest(ctx?: NextPageContext): Promise<API.Guest> {
     const cookies = nookies.get(ctx);
+    console.log(cookies);
     let guest: API.Guest;
     try {
       if (!cookies.guest) throw Error();
@@ -14,8 +15,7 @@ export default {
       nookies.set(ctx, "guest", guest.id, {
         path: "/",
         sameSite: true,
-        maxAge: 3600,
-        httpOnly: true
+        maxAge: 3600
       });
     } finally {
     }
