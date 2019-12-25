@@ -13,14 +13,12 @@ interface HomeProps {
 
 const Home = ({ items }: HomeProps) => {
   return (
-    <div>
+    <Content>
       <Head title="Fashion Shop" />
-      <Content>
-        <Banner />
-        <Search />
-        <Items items={items} />
-      </Content>
-    </div>
+      <Banner />
+      <Search />
+      <Items items={items} />
+    </Content>
   );
 };
 
