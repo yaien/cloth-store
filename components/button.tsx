@@ -4,7 +4,7 @@ import { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
-> & { block?: boolean };
+> & { block: boolean };
 
 const Button = (props: ButtonProps) => {
   const classes = cs({ block: props.block });
