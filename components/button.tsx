@@ -6,8 +6,8 @@ export type ButtonProps = DetailedHTMLProps<
   HTMLButtonElement
 > & { block: boolean };
 
-const Button = (props: ButtonProps) => {
-  const classes = cs({ block: props.block });
+const Button = ({ block, ...props }: ButtonProps) => {
+  const classes = cs({ block: block });
   return (
     <button {...props} className={classes}>
       {props.children}

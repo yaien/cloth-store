@@ -1,23 +1,41 @@
-import guests from "../core/guests";
-import { createContext, useState, ReactNode } from "react";
+import session from "../core/session";
+import useCart from "./hooks/use-cart";
+import { createContext, useState, useEffect, Props } from "react";
+import { NextPageContext } from "next";
 
-export const GuestContext = createContext<{
-  guest?: API.Guest;
-}>(null as any);
-
-export interface GuestProps {
-  children?: ReactNode;
-  guest: API.Guest;
+interface GuestContext {
+  cart: ReturnType<typeof useCart>;
 }
 
-export const Guest = (props: GuestProps) => {
-  const [guest, setGuest] = useState<API.Guest>(props.guest);
+export const GuestContext = createContext<GuestContext>(null as any);
 
-  const value = { guest };
+export const Guest = (props: Props<{}>) => {
+  const [guest, setGuest] = useState();
+  const cart = useCart(guest);
+
+  const init = async () => {
+    if (process.browser) {
+      setGuest(await session.guest());
+    }
+  };
+
+  useEffect(() => {
+    init();
+  }, []);
 
   return (
-    <GuestContext.Provider value={value}>
+    <GuestContext.Provider value={{ cart }}>
       {props.children}
     </GuestContext.Provider>
   );
 };
+
+Guest.getInitialProps = async (ctx: NextPageContext) => {
+  let guest: API.Guest | null = null;
+  if (!process.browser) {
+    guest = await session.guest(ctx);
+  }
+  return { guest };
+};
+
+export default Guest;
