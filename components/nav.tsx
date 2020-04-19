@@ -6,7 +6,9 @@ const Nav = () => (
   <nav>
     <div className="nav-content">
       <div className="nav-logo">
-        <img src="/static/logo-512.png" height="100%"></img>
+        <Link href="/">
+          <img src="/static/logo-512.png" height="100%"></img>
+        </Link>
       </div>
       <div className="grow"></div>
       <ShoppingButton items={1} />
@@ -21,28 +23,20 @@ const Nav = () => (
         display: flex;
         align-items: center;
         background-color: #ededed;
+        z-index: 50;
       }
 
       .nav-logo {
         height: 100%;
         width: auto;
         margin: 0px;
+        cursor: pointer;
       }
 
       .grow {
         flex-grow: 1;
       }
     `}</style>
-    <style global jsx>
-      {`
-        body,
-        html {
-          margin: 0px;
-          background-color: #f7f7f7;
-          height: 100%;
-        }
-      `}
-    </style>
   </nav>
 );
 
