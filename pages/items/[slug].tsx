@@ -9,9 +9,10 @@ import Container from "../../components/container";
 import Paragraph from "../../components/paragraph";
 import { Row, Col } from "../../components/layout";
 import { NextPageContext } from "next";
+import { Item } from "chillhood";
 
 interface DetailProps {
-  item?: API.Item;
+  item?: Item;
 }
 
 const Detail = ({ item, ...rest }: DetailProps) => {

@@ -1,22 +1,22 @@
 import nookies from "nookies";
-import guests from "./guests";
 import { NextPageContext } from "next";
+import { Guest } from "chillhood";
+import store from "../core/store";
 
 export default {
-  async guest(ctx?: NextPageContext): Promise<API.Guest> {
+  async guest(ctx?: NextPageContext): Promise<Guest> {
     const cookies = nookies.get(ctx);
-    let guest: API.Guest;
+    let guest: Guest;
     try {
       if (!cookies.guest) throw Error();
-      guest = await guests.get(cookies.guest);
+      guest = await store.guests.get(cookies.guest);
     } catch {
-      guest = await guests.create();
+      guest = await store.guests.create();
       nookies.set(ctx, "guest", guest.id, {
         path: "/",
         sameSite: true,
         maxAge: 3600
       });
-    } finally {
     }
 
     return guest;

@@ -2,9 +2,10 @@ import Select from "./select";
 import { useState, FormEvent, ChangeEvent, useMemo } from "react";
 import Input from "./input";
 import Button from "./button";
+import { Item, Size } from "chillhood";
 
 export interface ShopFormProps {
-  item: API.Item;
+  item: Item;
 }
 
 export interface ShopFormData {
@@ -13,7 +14,7 @@ export interface ShopFormData {
 }
 
 const ShopForm = ({ item }: ShopFormProps) => {
-  const [size, setSize] = useState<API.Size | undefined>(item.sizes[0]);
+  const [size, setSize] = useState<Size | undefined>(item.sizes[0]);
   const [quantity, setQuantity] = useState(1);
 
   const onSizeChange = (e: ChangeEvent<HTMLSelectElement>) => {

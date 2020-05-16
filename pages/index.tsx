@@ -3,11 +3,12 @@ import Head from "../components/head";
 import Content from "../components/content";
 import Banner from "../components/banner";
 import Search from "../components/search";
-import axios from "../core/axios";
-import Items from "../components/items";
+import ItemList from "../components/items";
+import store from "../core/store";
+import { Item } from "chillhood";
 
 interface HomeProps {
-  items: API.Item[];
+  items: Item[]
 }
 
 const Home = ({ items }: HomeProps) => {
@@ -16,14 +17,14 @@ const Home = ({ items }: HomeProps) => {
       <Head title="Fashion Shop" />
       <Banner />
       <Search />
-      <Items items={items} />
+      <ItemList items={items} />
     </Content>
   );
 };
 
 Home.getInitialProps = async (): Promise<HomeProps> => {
-  const res = await axios.get("/api/v1/public/items");
-  return { items: res.data };
+  const items = await store.items.list()
+  return { items: items };
 };
 
 export default Home;

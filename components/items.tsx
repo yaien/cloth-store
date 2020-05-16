@@ -1,14 +1,15 @@
 import Link from "next/link";
+import { Item } from "chillhood";
 
-export interface ItemsProps {
-  items: API.Item[];
+export interface ItemList {
+  items: Item[];
 }
 
-export const Items = ({ items }: ItemsProps) => {
+export const ItemList = ({ items }: ItemList) => {
   return (
     <div className="items">
       {items.map(item => (
-        <Item key={item.id} item={item} />
+        <CardItem key={item.id} item={item} />
       ))}
       <style jsx>{`
         .items {
@@ -23,14 +24,14 @@ export const Items = ({ items }: ItemsProps) => {
   );
 };
 
-export interface ItemProps {
-  item: API.Item;
+export interface CardItemProps {
+  item: Item;
 }
 
 const img =
   "https://assets.viralstyle.com/campaigns/76eb8a7b-9197-b8c4-fd94-5f8eb60ca631/Vk8V0z-DVm8MK-6b2B3J-front-large.jpg";
 
-export const Item = ({ item }: ItemProps) => (
+export const CardItem = ({ item }: CardItemProps) => (
   <Link href={"/items/" + item.slug} as={"/items/" + item.slug}>
     <div className="item">
       <div className="item-picture">
@@ -159,4 +160,4 @@ export const Item = ({ item }: ItemProps) => (
   </Link>
 );
 
-export default Items;
+export default ItemList;

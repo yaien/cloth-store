@@ -2,6 +2,7 @@ import session from "../core/session";
 import useCart from "./hooks/use-cart";
 import { createContext, useState, useEffect, Props } from "react";
 import { NextPageContext } from "next";
+import { Guest } from "chillhood";
 
 interface GuestContext {
   cart: ReturnType<typeof useCart>;
@@ -9,7 +10,7 @@ interface GuestContext {
 
 export const GuestContext = createContext<GuestContext>(null as any);
 
-export const Guest = (props: Props<{}>) => {
+export const GuestSession = (props: Props<{}>) => {
   const [guest, setGuest] = useState();
   const cart = useCart(guest);
 
@@ -30,8 +31,8 @@ export const Guest = (props: Props<{}>) => {
   );
 };
 
-Guest.getInitialProps = async (ctx: NextPageContext) => {
-  let guest: API.Guest | null = null;
+GuestSession.getInitialProps = async (ctx: NextPageContext) => {
+  let guest: Guest | null = null;
   if (!process.browser) {
     guest = await session.guest(ctx);
   }
