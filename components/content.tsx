@@ -1,8 +1,8 @@
 import Nav from "./nav";
-import Guest from "../context/guest";
+import GuestSession from "../context/guest";
 
 const Content = (props: React.Props<{}>) => (
-  <Guest>
+  <GuestSession>
     <Nav />
     <main>{props.children}</main>
     <style jsx>
@@ -23,7 +23,7 @@ const Content = (props: React.Props<{}>) => (
         }
       `}
     </style>
-  </Guest>
+  </GuestSession>
 );
 
 export default Content;

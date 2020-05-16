@@ -11,7 +11,7 @@ interface GuestContext {
 export const GuestContext = createContext<GuestContext>(null as any);
 
 export const GuestSession = (props: Props<{}>) => {
-  const [guest, setGuest] = useState();
+  const [guest, setGuest] = useState<Guest>();
   const cart = useCart(guest);
 
   const init = async () => {
@@ -39,4 +39,4 @@ GuestSession.getInitialProps = async (ctx: NextPageContext) => {
   return { guest };
 };
 
-export default Guest;
+export default GuestSession;

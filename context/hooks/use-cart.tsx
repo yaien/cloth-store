@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import items from "../../core/items";
 import { CartItem, Guest } from "chillhood";
+import store from "../../core/store";
 
 export const useCart = (guest?: Guest) => {
   const [data, setData] = useState(guest?.cart);
@@ -9,10 +9,10 @@ export const useCart = (guest?: Guest) => {
     if (!guest) return null;
     return {
       async add(item: CartItem) {
-        setData(await items.add(guest.id, item));
+        setData(await store.guests.items.add(guest.id, item));
       },
       async remove(item: CartItem) {
-        setData(await items.remove(guest.id, item.id));
+        setData(await store.guests.items.remove(guest.id, item.id));
       }
     };
   }, [guest]);
