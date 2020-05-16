@@ -1,4 +1,3 @@
-import axios from "../../core/axios";
 import Head from "../../components/head";
 import Content from "../../components/content";
 import Error from "next/error";
@@ -7,6 +6,7 @@ import ShopForm from "../../components/shop-form";
 import Title from "../../components/title";
 import Container from "../../components/container";
 import Paragraph from "../../components/paragraph";
+import store from "../../core/store";
 import { Row, Col } from "../../components/layout";
 import { NextPageContext } from "next";
 import { Item } from "chillhood";
@@ -28,7 +28,7 @@ const Detail = ({ item, ...rest }: DetailProps) => {
         <Container>
           <Row>
             <Col md={2}>
-              <Carousel />
+              {item.pictures && <Carousel pictures={item.pictures}/>}
             </Col>
             <Col md={2}>
               <Paragraph>{item.description}</Paragraph>
@@ -43,8 +43,8 @@ const Detail = ({ item, ...rest }: DetailProps) => {
 
 Detail.getInitialProps = async (ctx: NextPageContext): Promise<DetailProps> => {
   try {
-    let res = await axios.get("/api/v1/public/items/" + ctx.query.slug);
-    return { item: res.data };
+    let item = await store.items.get(ctx.query.slug as string)
+    return { item };
   } catch {
     return {};
   }

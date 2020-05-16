@@ -1,7 +1,22 @@
-const img =
-  "https://assets.viralstyle.com/campaigns/76eb8a7b-9197-b8c4-fd94-5f8eb60ca631/Vk8V0z-DVm8MK-6b2B3J-front-large.jpg";
+import { Picture } from "chillhood";
+import { FC } from "react";
+import useSettings from "../context/hooks/use-settings";
 
-const Carousel = () => {
+
+export interface CarouselProps {
+  pictures: Picture[]
+}
+
+const Carousel: FC<CarouselProps> = (props) => {
+  const settings = useSettings()
+  
+  const img = settings.cloudinary?.url(props.pictures[0].reference, {
+    width: 476,
+    height: 570,
+    crop: "pad"
+  })
+
+
   return (
     <div className="carousel">
       <div className="current">
