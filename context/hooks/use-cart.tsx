@@ -1,18 +1,23 @@
-import { useState, useMemo } from "react";
-import { CartItem, Guest } from "chillhood";
+import { useState, useMemo, useEffect } from "react";
+import { Guest, CartItemBase } from "chillhood";
 import store from "../../core/store";
 
 export const useCart = (guest?: Guest) => {
   const [data, setData] = useState(guest?.cart);
 
+  useEffect(() => {
+    setData(guest?.cart)
+  }, [guest?.cart])
+
   const actions = useMemo(() => {
-    if (!guest) return null;
     return {
-      async add(item: CartItem) {
+      async add(item: CartItemBase) {
+        if(!guest) return
         setData(await store.guests.items.add(guest.id, item));
       },
-      async remove(item: CartItem) {
-        setData(await store.guests.items.remove(guest.id, item.id));
+      async remove(itemId: string) {
+        if(!guest) return
+        setData(await store.guests.items.remove(guest.id, itemId));
       }
     };
   }, [guest]);

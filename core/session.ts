@@ -15,7 +15,6 @@ export default {
       nookies.set(ctx, "guest", guest.id, {
         path: "/",
         sameSite: true,
-        maxAge: 3600
       });
     }
 

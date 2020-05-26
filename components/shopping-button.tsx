@@ -1,12 +1,18 @@
+import Link from "next/link";
+
 export interface ShoppingButtonProps
   extends React.HTMLProps<HTMLButtonElement> {
   items: number;
 }
 
 const ShoppingButton = (props: ShoppingButtonProps) => (
-  <button onClick={props.onClick}>
-    <i className="material-icons">shopping_cart</i>
-    {props.items ? <span>{props.items}</span> : null}
+  <>
+    <Link href="/cart">
+      <button onClick={props.onClick}>
+        <i className="material-icons">shopping_cart</i>
+        {props.items ? <span>{props.items}</span> : null}
+      </button>
+    </Link>
     <style jsx>
       {`
         button {
@@ -42,7 +48,7 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
         }
       `}
     </style>
-  </button>
+  </>
 );
 
 export default ShoppingButton;

@@ -6,29 +6,34 @@ import { Item, Size } from "chillhood";
 
 export interface ShopFormProps {
   item: Item;
+  onSubmit?(data: ShopFormData): void
 }
 
 export interface ShopFormData {
-  size?: string;
-  quantity?: number;
+  size: string;
+  quantity: number;
+  item: Item
 }
 
-const ShopForm = ({ item }: ShopFormProps) => {
-  const [size, setSize] = useState<Size | undefined>(item.sizes[0]);
+const ShopForm = ({ item, onSubmit }: ShopFormProps) => {
+  const [size, setSize] = useState<Size>(item.sizes[0]);
   const [quantity, setQuantity] = useState(1);
 
   const onSizeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const size = item.sizes.find(s => s.label === e.target.value);
-    setSize(size);
-    setQuantity(1);
+    if(size) {
+      setSize(size);
+      setQuantity(1);
+    }
   };
 
   const onQuantityChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuantity(parseInt(e.target.value));
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const submit = (e: FormEvent) => {
     e.preventDefault();
+    if(onSubmit) onSubmit({ item, quantity, size: size?.label })
   };
 
   const total = useMemo(() => {
@@ -37,7 +42,7 @@ const ShopForm = ({ item }: ShopFormProps) => {
   }, [item, quantity]);
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={submit}>
       <Select
         label="Talla"
         name="size"
