@@ -12,6 +12,7 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
   onDelete,
 }) => {
   const settings = useSettings();
+  const total = item.price * item.quantity;
   const picture = settings.cloudinary?.url(item.picture.reference, {
     width: 120,
     height: 120,
@@ -31,12 +32,16 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
             </div>
             <div className="summary">
               <div className="field">
-                <div className="label">Talla:</div>
+                <div className="label">Talla</div>
                 <div className="value">{item.size}</div>
               </div>
               <div className="field">
-                <div className="label">Cantidad:</div>
+                <div className="label">Cantidad</div>
                 <div className="value">{item.quantity}</div>
+              </div>
+              <div className="field">
+                <div className="label">Precio</div>
+                <div className="value">$ {total.toLocaleString()}</div>
               </div>
             </div>
           </div>
@@ -121,6 +126,7 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
         }
 
         .field {
+          margin: 0.25rem;
           display: flex;
           justify-content: space-between;
         }
@@ -138,6 +144,12 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
           }
           .detail {
             text-align: center;
+          }
+          .name {
+            margin-bottom: 0.8rem;
+          }
+          .summary {
+            margin-bottom: 0.5rem;
           }
         }
       `}</style>

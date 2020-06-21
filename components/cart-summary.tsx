@@ -1,15 +1,19 @@
 import CartSummaryItem from "./cart-summary-item";
+import CartSummaryFooter from "./cart-summary-footer";
 import { Row, Col } from "./layout";
 import { FC } from "react";
 import { Cart, CartItem } from "chillhood";
 
-
 export interface CartProps {
   cart: Cart;
-  onDelete?(item: CartItem): void
+  onDelete?(item: CartItem): void;
 }
 
 const CartSummary: FC<CartProps> = ({ cart, onDelete }) => {
+  const subtotal = cart.items.reduce(
+    (sum, item) => sum + item.quantity * item.price,
+    0
+  );
   return (
     <Row>
       <Col md={1}>
@@ -17,6 +21,11 @@ const CartSummary: FC<CartProps> = ({ cart, onDelete }) => {
           <CartSummaryItem key={item.id} item={item} onDelete={onDelete} />
         ))}
       </Col>
+      <Row>
+        <Col md={1}>
+          <CartSummaryFooter shipping={0} subtotal={subtotal} />
+        </Col>
+      </Row>
     </Row>
   );
 };
