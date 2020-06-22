@@ -7,6 +7,9 @@ export function useInvoice(guest?: Guest) {
       if (!guest) throw Error("missing guest");
       return store.guests.invoices.create(guest.id, shipping, items);
     },
+    check(epaycoRef: string) {
+      return store.invoices.check(epaycoRef);
+    },
   };
 }
 

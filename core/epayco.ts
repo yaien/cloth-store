@@ -33,7 +33,7 @@ export class Epayco {
 
   async checkout(invoice: Invoice) {
     const handler = await this.handler();
-    const redirect = window.location.origin + "/payment/response";
+    const response = window.location.origin + "/payment";
     let data = {
       name: "compra de chillhood",
       invoice: invoice.ref,
@@ -42,8 +42,7 @@ export class Epayco {
       country: "co",
       external: "true",
       confirmation: this.settings.confirmation,
-      response: this.settings.response,
-      extra1: redirect,
+      response: response,
       name_billing: invoice.shipping.name,
       email_billing: invoice.shipping.email,
       mobilephone_billing: invoice.shipping.phone,

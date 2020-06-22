@@ -1,7 +1,7 @@
 import store from "../../core/store";
 import { useState, useEffect } from "react";
 import { Cloudinary } from "cloudinary-core";
-import { Epayco } from "../../core/checkout";
+import { Epayco } from "../../core/epayco";
 
 export function useSettings() {
   const [cloudinary, setCloudinary] = useState<Cloudinary>();
