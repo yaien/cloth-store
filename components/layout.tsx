@@ -16,6 +16,8 @@ export const Row = (props: Props<{}>) => (
 export interface ColProps extends Props<{}> {
   md?: number;
   sm?: number;
+  lg?: number;
+  xl?: number;
 }
 
 export const Col = (props: ColProps) => (
@@ -23,12 +25,24 @@ export const Col = (props: ColProps) => (
     {props.children}
     <style jsx>{`
       .col {
-        width: calc(90% / ${props.sm || 1});
+        width: calc(100% / ${props.sm || 1});
       }
 
       @media (min-width: 768px) {
         .col {
           width: calc(100% / ${props.md || 1});
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .col {
+          width: calc(100% / ${props.lg || 1});
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .col {
+          width: calc(100% / ${props.xl || 1});
         }
       }
     `}</style>

@@ -46,14 +46,16 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
             </div>
           </div>
           <div className="actions">
-            <button
-              type="button"
-              className="btn"
-              onClick={onDelete && onDelete.bind(null, item)}
-            >
-              <i className="material-icons">clear</i>
-              Eliminar producto
-            </button>
+            {onDelete && (
+              <button
+                type="button"
+                className="btn"
+                onClick={onDelete.bind(null, item)}
+              >
+                <i className="material-icons">clear</i>
+                Eliminar producto
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -1,10 +1,14 @@
 import Content from "../components/content";
 import Head from "../components/head";
-import Card from "../components/card";
 import { FC, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Invoice } from "chillhood";
 import { useGuest } from "../context/guest";
+import InvoiceDetail from "../components/invoice-detail";
+import Container from "../components/container";
+import Title from "../components/title";
+import Card from "../components/card";
+import { Row, Col } from "../components/layout";
 
 const Payment: FC = () => {
   const router = useRouter();
@@ -28,9 +32,18 @@ const Payment: FC = () => {
   return (
     <Content>
       <Head title="Comprobante de pago"></Head>
-      <Card>
-        <p>{JSON.stringify(invoice, null, "    ")}</p>
-      </Card>
+      <Container>
+        <Row>
+          <Col md={1} lg={2} xl={3}>
+            <Card>
+              <Title>Estado de factura</Title>
+              <Card.Body>
+                <InvoiceDetail invoice={invoice} />
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </Content>
   );
 };

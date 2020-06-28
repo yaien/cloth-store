@@ -32,9 +32,9 @@ export const Input = (props: InputProps) => (
         appearance: none;
         border: none;
         padding: 0.5rem;
-        width: 75%;
         font-weight: 500;
         font-size: 1rem;
+        flex-grow: 1;
       }
     `}</style>
   </>
