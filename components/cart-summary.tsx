@@ -16,16 +16,14 @@ const CartSummary: FC<CartProps> = ({ cart, onDelete }) => {
   );
   return (
     <Row>
-      <Col md={1}>
+      <Col md={1.5}>
         {cart.items.map((item) => (
           <CartSummaryItem key={item.id} item={item} onDelete={onDelete} />
         ))}
       </Col>
-      <Row>
-        <Col md={1}>
-          <CartSummaryFooter shipping={0} subtotal={subtotal} />
-        </Col>
-      </Row>
+      <Col md={4} sm={1}>
+        <CartSummaryFooter shipping={0} subtotal={subtotal} />
+      </Col>
     </Row>
   );
 };

@@ -8,6 +8,7 @@ import Container from "../components/container";
 import Title from "../components/title";
 import { CheckoutForm } from "../components/checkout-form";
 import useSettings from "../context/hooks/use-settings";
+import { Row, Col } from "../components/layout";
 
 const CartDetail: FC = () => {
   const guest = useGuest();
@@ -31,8 +32,16 @@ const CartDetail: FC = () => {
         <Container>
           {guest.cart.data ? (
             <>
-              <CartSummary cart={guest.cart.data} onDelete={onDelete} />
-              <CheckoutForm onSubmit={onSubmit} />
+              <Row>
+                <Col md={1}>
+                  <CartSummary cart={guest.cart.data} onDelete={onDelete} />
+                </Col>
+              </Row>
+              <Row>
+                <Col md={1.2}>
+                  <CheckoutForm onSubmit={onSubmit} />
+                </Col>
+              </Row>
             </>
           ) : (
             "aun no has agregado productos al carrito"

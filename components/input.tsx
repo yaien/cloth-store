@@ -15,6 +15,7 @@ export const Input = (props: InputProps) => (
         overflow: hidden;
         border: 1px solid #d1d1d1;
         display: flex;
+        text-overflow: clip;
       }
 
       .field label {

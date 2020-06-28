@@ -15,15 +15,20 @@ export const Row = (props: Props<{}>) => (
 
 export interface ColProps extends Props<{}> {
   md?: number;
+  sm?: number;
 }
 
 export const Col = (props: ColProps) => (
   <div className="col">
     {props.children}
     <style jsx>{`
+      .col {
+        width: calc(90% / ${props.sm || 1});
+      }
+
       @media (min-width: 768px) {
         .col {
-          width: calc(100% / ${props.md});
+          width: calc(100% / ${props.md || 1});
         }
       }
     `}</style>
@@ -31,5 +36,5 @@ export const Col = (props: ColProps) => (
 );
 
 Col.defaultProps = {
-  md: 1
+  md: 1,
 } as ColProps;
