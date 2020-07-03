@@ -136,6 +136,10 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
           font-weight: 700;
           margin-right: 0.5rem;
         }
+        .field .value {
+          flex-shrink: 0;
+        }
+
         @media (max-width: 460px) {
           .info {
             flex-direction: column;

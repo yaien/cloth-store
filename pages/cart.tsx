@@ -33,12 +33,10 @@ const CartDetail: FC = () => {
           {guest.cart.data ? (
             <>
               <Row>
-                <Col md={1}>
+                <Col md={1} lg={2} xl={2.5}>
                   <CartSummary cart={guest.cart.data} onDelete={onDelete} />
                 </Col>
-              </Row>
-              <Row>
-                <Col md={1.2}>
+                <Col md={1} lg={2} xl={2.5}>
                   <CheckoutForm onSubmit={onSubmit} />
                 </Col>
               </Row>

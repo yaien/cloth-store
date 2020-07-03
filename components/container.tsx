@@ -7,7 +7,7 @@ export const Container = (props: Props<{}>) => (
     <style jsx>{`
       .container {
         margin-top: 1rem;
-        padding: 0.25rem;
+        padding: 1rem;
       }
     `}</style>
   </div>

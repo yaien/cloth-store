@@ -27,7 +27,6 @@ export const CartSummaryInfo: FC<CartSummaryInfoProps> = (props) => {
 
       <style jsx>{`
         .summary {
-          margin-top: 1rem;
         }
         .field:first {
           border-top: 1px solid #bbb;

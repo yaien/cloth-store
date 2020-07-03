@@ -1,11 +1,15 @@
-import { Props } from "react";
+import { FC } from "react";
 
-export const Title = (props: Props<{}>) => {
+export interface TitleProps {
+  small?: boolean;
+}
+
+export const Title: FC<TitleProps> = (props) => {
   return (
-    <h1 className="title">
+    <h1>
       {props.children}
       <style jsx>{`
-        .title {
+        .h1 {
           text-align: center;
           padding: 0.5rem 0rem;
           font-size: 1.4rem;
@@ -15,6 +19,22 @@ export const Title = (props: Props<{}>) => {
         }
       `}</style>
     </h1>
+  );
+};
+
+export const Subtitle: FC = (props) => {
+  return (
+    <>
+      <h3>{props.children}</h3>
+      <style jsx>{`
+        h3 {
+          text-transform: uppercase;
+          font-weight: 500;
+          text-align: center;
+          letter-spacing: 0.2rem;
+        }
+      `}</style>
+    </>
   );
 };
 

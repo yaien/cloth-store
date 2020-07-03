@@ -4,6 +4,7 @@ import useForm from "../context/hooks/use-form";
 import { FC, FormEvent } from "react";
 import { Shipping } from "chillhood";
 import { Col, Row } from "./layout";
+import { Subtitle } from "./title";
 
 export interface CheckoutFormProps {
   onSubmit?(data: any): void;
@@ -19,7 +20,7 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
 
   return (
     <>
-      <h3 className="title">Información de contacto y envio</h3>
+      <Subtitle>Información de contacto y envio</Subtitle>
       <form onSubmit={onSubmit} className="form">
         <Row>
           <Col md={2}>
@@ -88,14 +89,7 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
       </form>
       <style jsx>{`
         .form {
-          margin-top: 1rem;
-          margin-bottom: 0.5rem;
-        }
-        .title {
-          text-transform: uppercase;
-          font-weight: 500;
-          text-align: center;
-          letter-spacing: 0.2rem;
+          margin: 1rem;
         }
       `}</style>
     </>

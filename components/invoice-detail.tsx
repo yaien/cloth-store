@@ -19,10 +19,17 @@ export const InvoiceDetail: FC<InvoiceDetailProps> = ({ invoice }) => {
           <CartSummaryItem item={item} key={item.id} />
         ))}
       </div>
-      <CartSummaryInfo
-        subtotal={invoice.cart.subtotal}
-        shipping={invoice.cart.shipping}
-      />
+      <div className="margin-top">
+        <CartSummaryInfo
+          subtotal={invoice.cart.subtotal}
+          shipping={invoice.cart.shipping}
+        />
+      </div>
+      <style jsx>{`
+        .margin-top {
+          margin-top: 1rem;
+        }
+      `}</style>
     </div>
   );
 };

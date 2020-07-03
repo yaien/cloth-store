@@ -34,7 +34,7 @@ export const Select = (props: SelectProps) => (
         appearance: none;
         border: none;
         padding: 0.45rem;
-        width: 75%;
+        flex-grow: 1;
         font-weight: 500;
         font-size: 1rem;
         background: white;
