@@ -9,7 +9,7 @@ export const Title: FC<TitleProps> = (props) => {
     <h1>
       {props.children}
       <style jsx>{`
-        .h1 {
+        h1 {
           text-align: center;
           padding: 0.5rem 0rem;
           font-size: 1.4rem;
