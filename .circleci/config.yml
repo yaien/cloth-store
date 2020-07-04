@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/node
     steps:
@@ -39,10 +39,10 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - test
+      - build
       - deploy:
           requires:
-            - test
+            - build
           filters:
             branches:
               only: develop
