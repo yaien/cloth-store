@@ -10,6 +10,9 @@ export function useInvoice(guest?: Guest) {
     check(epaycoRef: string) {
       return store.invoices.check(epaycoRef);
     },
+    get(ref: string) {
+      return store.invoices.get(ref);
+    },
   };
 }
 
