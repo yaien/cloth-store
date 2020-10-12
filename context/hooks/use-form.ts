@@ -6,7 +6,7 @@ export function useForm<T>(data?: T) {
   type Key = keyof T;
 
   function get(key: Key, type = String) {
-    return state && type(state[key] ?? "");
+    return state ? type(state[key] ?? "") : type("");
   }
 
   function input(key: Key, type = String) {
@@ -15,9 +15,14 @@ export function useForm<T>(data?: T) {
     };
   }
 
+  function set(update: Partial<T>) {
+    setState({ ...state, ...(update as T) });
+  }
+
   return {
     get,
     input,
+    set,
     state,
     setState,
   };

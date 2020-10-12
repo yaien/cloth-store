@@ -29,12 +29,19 @@ export const Input = (props: InputProps) => (
 
       .field input {
         color: #555;
-        appearance: none;
         border: none;
         padding: 0.5rem;
         font-weight: 500;
         font-size: 1rem;
         flex-grow: 1;
+        box-sizing: border-box;
+      }
+
+      .field input:focus {
+        box-shadow: 1 0 0 0 rgba(255, 0, 0, 0.125),
+          0 1 1 0 rgba(255, 0, 0, 0.125);
+        outline-color: #a00;
+        border: 1px solid #a00;
       }
     `}</style>
   </>
