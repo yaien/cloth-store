@@ -2,12 +2,16 @@ import Input from "./input";
 import Button from "./button";
 import useForm from "../context/hooks/use-form";
 import { FC, FormEvent } from "react";
-import { Shipping } from "chillhood";
+import { City, Shipping } from "chillhood";
 import { Col, Row } from "./layout";
 import { Subtitle } from "./title";
+import store from "../core/store";
+import { Option } from "./select";
+import { AsyncSelect } from "./async-select";
 
 export interface CheckoutFormProps {
   onSubmit?(data: any): void;
+  onShipmentSelected?(shipment: number): void;
 }
 
 export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
@@ -16,6 +20,25 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     props.onSubmit && props.onSubmit(form.state);
+  }
+
+  async function onCitySearch(query: string): Promise<Option<City>[]> {
+    const cities = await store.cities.find({ name: query });
+    return cities.map((city) => ({
+      label: `${city.name}, ${city.province.name}`,
+      value: city.id,
+      source: city,
+    }));
+  }
+
+  function onCityChange(option: Option<City>) {
+    form.set({
+      city: option.source.name,
+      province: option.source.province.name,
+    });
+    if (props.onShipmentSelected) {
+      props.onShipmentSelected(option.source.shipment);
+    }
   }
 
   return (
@@ -28,6 +51,7 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
               name="name"
               label="Nombre Completo"
               required
+              value={form.get("name")}
               onChange={form.input("name")}
             />
           </Col>
@@ -44,21 +68,11 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
         </Row>
         <Row>
           <Col md={2}>
-            <Input
-              name="province"
-              label="Departamento"
-              required
-              value={form.get("province")}
-              onChange={form.input("province")}
-            />
-          </Col>
-          <Col md={2}>
-            <Input
-              name="city"
-              label="Ciudad"
-              required
-              value={form.get("city")}
-              onChange={form.input("city")}
+            <AsyncSelect
+              label="Cuidad"
+              defaultOptions
+              loadOptions={onCitySearch}
+              onChange={onCityChange}
             />
           </Col>
         </Row>

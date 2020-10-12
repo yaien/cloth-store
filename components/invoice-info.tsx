@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Status } from "chillhood";
+import { InvoiceStatus as Status } from "chillhood";
 
 export interface InvoiceInfoProps {
   reference: string;

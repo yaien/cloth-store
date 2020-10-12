@@ -8,9 +8,10 @@ import CartSummaryInfo from "./cart-summary-info";
 export interface CartProps {
   cart: Cart;
   onDelete?(item: CartItem): void;
+  shipping?: number;
 }
 
-const CartSummary: FC<CartProps> = ({ cart, onDelete }) => {
+const CartSummary: FC<CartProps> = ({ cart, shipping, onDelete }) => {
   const subtotal = cart.items.reduce(
     (sum, item) => sum + item.quantity * item.price,
     0
@@ -24,7 +25,7 @@ const CartSummary: FC<CartProps> = ({ cart, onDelete }) => {
         ))}
       </Col>
       <Col md={4} sm={1}>
-        <CartSummaryInfo shipping={0} subtotal={subtotal} />
+        <CartSummaryInfo shipping={shipping || 0} subtotal={subtotal} />
       </Col>
     </Row>
   );

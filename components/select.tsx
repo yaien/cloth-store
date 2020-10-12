@@ -2,6 +2,12 @@ export interface SelectProps extends React.HTMLProps<HTMLSelectElement> {
   empty?: boolean;
 }
 
+export interface Option<T> {
+  label: string;
+  value: string;
+  source: T;
+}
+
 export const Select = (props: SelectProps) => (
   <>
     <div className="field">
