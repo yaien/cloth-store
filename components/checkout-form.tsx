@@ -69,7 +69,8 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
         <Row>
           <Col md={2}>
             <AsyncSelect
-              label="Cuidad"
+              label="Ciudad"
+              name="city"
               defaultOptions
               loadOptions={onCitySearch}
               onChange={onCityChange}

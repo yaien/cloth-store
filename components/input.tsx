@@ -29,8 +29,6 @@ export const Input = (props: InputProps) => (
 
       .field input {
         color: #555;
-        -moz-appearance: none;
-        appearance: none;
         border: none;
         padding: 0.5rem;
         font-weight: 500;
