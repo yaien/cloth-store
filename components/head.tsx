@@ -1,6 +1,5 @@
 import React from "react";
 import NextHead from "next/head";
-import { string } from "prop-types";
 
 interface HeadProps {
   title?: string;
@@ -12,7 +11,7 @@ interface HeadProps {
 const Head = (props: HeadProps) => (
   <NextHead>
     <meta charSet="UTF-8" />
-    <title>{props.title}</title>
+    <title>Chillhood | {props.title}</title>
     <meta name="description" content={props.description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
@@ -38,12 +37,5 @@ const Head = (props: HeadProps) => (
     <meta property="og:image:height" content="630" />
   </NextHead>
 );
-
-Head.propTypes = {
-  title: string,
-  description: string,
-  url: string,
-  ogImage: string
-};
 
 export default Head;

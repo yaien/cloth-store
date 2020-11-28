@@ -8,13 +8,13 @@ import store from "../core/store";
 import { Item } from "chillhood";
 
 interface HomeProps {
-  items: Item[]
+  items: Item[];
 }
 
 const Home = ({ items }: HomeProps) => {
   return (
     <Content>
-      <Head title="Fashion Shop" />
+      <Head />
       <Banner />
       <Search />
       <ItemList items={items} />
@@ -23,7 +23,7 @@ const Home = ({ items }: HomeProps) => {
 };
 
 Home.getInitialProps = async (): Promise<HomeProps> => {
-  const items = await store.items.list()
+  const items = await store.items.list();
   return { items: items };
 };
 
