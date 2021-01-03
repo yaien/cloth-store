@@ -33,7 +33,7 @@ const CartDetail: FC = () => {
     <Content>
       <Head title="Carrito" />
       <Container>
-        <Title>CARRITO DE COMPRAS - PRODUCTOS CHILLHOOD</Title>
+        <Title>CARRITO DE COMPRAS</Title>
         <Container>
           {guest.cart.data && guest.cart.data.items.length ? (
             <>
