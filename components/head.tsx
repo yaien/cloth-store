@@ -19,11 +19,12 @@ const Head = (props: HeadProps) => (
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
     <meta property="og:url" content={props.url} />

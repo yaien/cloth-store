@@ -9,8 +9,8 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
   <>
     <Link href="/cart">
       <button onClick={props.onClick}>
-        <i className="material-icons">shopping_cart</i>
-        {props.items ? <span>{props.items}</span> : null}
+        <i className="material-icons-outlined">shopping_bag</i>
+        {props.items ? <div className="badge">{props.items}</div> : null}
       </button>
     </Link>
     <style jsx>
@@ -18,32 +18,40 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
         button {
           background: none;
           border: none;
-          margin: 1em;
           cursor: pointer;
           transition: all 0.5s ease;
           outline: none;
           box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+          position: inline-block;
         }
+
         button:hover {
           color: #aaa;
         }
 
-        span {
+        .badge {
           background-color: #bd1e1e;
-          padding: 0.25em 0.6em;
+          padding: 0.2em 0.5em;
           border-radius: 1em;
           color: white;
           font-weight: bold;
           font-size: 0.8rem;
           text-align: center;
           vertical-align: center;
-          position: relative;
-          left: -10px;
-          top: -15px;
+          position: absolute;
           transition: all 0.5s ease;
+          font-size: 0.8em;
+          font-weight: bold;
+          top: 22px;
+          right: 3px;
+        }
+        button i {
+          font-size: 26px;
         }
 
-        button:hover span {
+        button:hover .badge {
           background-color: #ff9191;
         }
       `}

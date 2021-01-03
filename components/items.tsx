@@ -54,7 +54,7 @@ export const CardItem = ({ item }: CardItemProps) => {
             <div className="item-overlay-content">
               <div className="item-overlay-background" />
               <div className="item-overlay-link">
-                <i className="material-icons">add</i>
+                <i className="material-icons-outlined">add</i>
               </div>
             </div>
           </div>
