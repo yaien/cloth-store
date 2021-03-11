@@ -66,13 +66,13 @@ export const CardItem = ({ item }: CardItemProps) => {
         </div>
         <style jsx>{`
           .item {
-            border: 2px solid #d1d1d1;
+            border: 2px solid var(--border-secondary);
             overflow: hidden;
             border-radius: 0.5rem;
             width: 100%;
             margin: 0.5rem;
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.125);
-            background-color: #e1e1e1;
+            background-color: var(--bg-secondary);
             cursor: pointer;
           }
 
@@ -96,7 +96,7 @@ export const CardItem = ({ item }: CardItemProps) => {
           }
 
           .item-price {
-            color: #750000;
+            color: var(--text-primary);
             font-weight: bold;
             font-size: 1rem;
           }
@@ -129,7 +129,7 @@ export const CardItem = ({ item }: CardItemProps) => {
           }
 
           .item-overlay-background {
-            background-color: #ad2a3b;
+            background-color: var(--bg-hover-primary);
             height: 100%;
             width: 100%;
             position: absolute;
@@ -138,10 +138,10 @@ export const CardItem = ({ item }: CardItemProps) => {
 
           .item-overlay-link {
             z-index: 10;
-            color: white;
-            border: 2px solid #f1f1f1;
+            color: var(--text-light);
+            border: 2px solid var(--border-light);
             background: transparent;
-            text-decoration: #800414;
+            text-decoration: var(--text-decoration-primary);
             cursor: pointer;
             padding: 1rem;
             border-radius: 50%;
@@ -154,8 +154,8 @@ export const CardItem = ({ item }: CardItemProps) => {
           }
 
           .item-overlay-link:hover {
-            background: white;
-            color: #ad2a3b;
+            background: var(--bg-light);
+            color: var(--text-primary);
             padding: 0.125rem;
           }
 

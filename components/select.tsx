@@ -27,23 +27,23 @@ export const Select = (props: SelectProps) => (
       }
 
       .field label {
-        color: #555;
+        color: var(--text-light);
         font-weight: 500;
         padding: 0.5rem;
-        background-color: #ddd;
-        border-right: 1px solid #d1d1d1;
+        background-color: var(--bg-primary);
+        border-right: 1px solid var(--border-primary);
         text-align: center;
       }
 
       .field select {
-        color: #555;
+        color: var(--text-dark);
         appearance: none;
         border: none;
         padding: 0.45rem;
         flex-grow: 1;
         font-weight: 500;
         font-size: 1rem;
-        background: white;
+        background: var(--bg-light);
         margin: 0px;
       }
     `}</style>

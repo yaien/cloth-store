@@ -13,10 +13,10 @@ const styles: Partial<Styles<OptionTypeBase, false>> = {
   }),
   control: (provided, state) => ({
     ...provided,
-    borderRadius: "0 0.25rem 0.25rem 0",
+    borderRadius: "0 var(--border-radius) var(--border-radius) 0",
     fontWeight: 500,
     fontSize: "1rem",
-    color: "#555",
+    color: "var(--text-secondary)",
   }),
 };
 
@@ -24,9 +24,9 @@ const theme = (th: Theme): Theme => ({
   ...th,
   colors: {
     ...th.colors,
-    primary25: "#ddd",
-    primary: "#a00",
-    primary50: "#c88",
+    primary: "var(--text-primary)",
+    primary25: "var(--bg-hover-light)",
+    primary75: "var(--bg-hover-light)",
   },
 });
 
@@ -38,17 +38,18 @@ export function AsyncSelect(props: AsyncSelectProps<any>) {
       <style jsx>{`
         .select {
           margin: 0.25rem;
-          border-radius: 0.25rem;
+          border-radius: var(--border-radius);
           display: flex;
           text-overflow: clip;
         }
 
         .select label {
-          color: #555;
+          color: var(--text-light);
           font-weight: 500;
           padding: 0.5rem;
-          background-color: #ddd;
+          background-color: var(--bg-primary);
           text-align: center;
+          border-radius: var(--border-radius) 0 0 var(--border-radius);
         }
       `}</style>
     </div>

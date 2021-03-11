@@ -41,7 +41,7 @@ export const InvoiceInfo: FC<InvoiceInfoProps> = (props) => {
           font-size: 1.2rem;
         }
         .ref span {
-          color: darkred;
+          color: var(--text-primary);
           text-transform: uppercase;
         }
         .status {

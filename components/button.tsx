@@ -14,22 +14,31 @@ const Button = ({ block, ...props }: ButtonProps) => {
       <style jsx>{`
         button {
           padding: 0.5rem;
-          background-color: #a00;
+          background-color: var(--bg-primary);
           border: none;
           border-radius: 0.25rem;
           box-sizing: border-box;
           box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.125);
           font-size: 0.8rem;
           font-weight: 500;
-          color: #f1f1f1;
+          color: var(--text-light);
           text-transform: uppercase;
           cursor: pointer;
           transition: all 0.5s;
+          letter-spacing: 0.15rem;
+          appearance: none;
+          outline: none;
         }
 
         button:hover {
-          background-color: #b00;
+          color: var(--text-hover-primary);
+          background-color: var(--bg-hover-light);
           box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        button:active {
+          outline: none;
+          border: none;
         }
 
         button.block {

@@ -1,12 +1,14 @@
 import Nav from "./nav";
 import { FC, useState } from "react";
 import Menu from "./menu";
+import { Theme } from "./theme";
 
 const Content: FC = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
   return (
     <>
+      <Theme />
       <Nav onMenuToggle={toggleMenu} />
       <Menu open={menuOpen} onToggle={toggleMenu} />
       <main>{props.children}</main>
@@ -22,9 +24,9 @@ const Content: FC = (props) => {
           body,
           html {
             margin: 0px;
-            background-color: #f7f7f7;
+            background-color: var(--bg-light);
             height: 100%;
-            font-family: "Open Sans", sans-serif;
+            font-family: var(--font-family);
           }
         `}
       </style>

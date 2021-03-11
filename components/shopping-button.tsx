@@ -28,14 +28,14 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
         }
 
         button:hover {
-          color: #aaa;
+          color: var(--text-hover-light);
         }
 
         .badge {
-          background-color: #bd1e1e;
+          background-color: var(--bg-primary);
           padding: 0.2em 0.5em;
           border-radius: 1em;
-          color: white;
+          color: var(--text-light);
           font-weight: bold;
           font-size: 0.8rem;
           text-align: center;
@@ -47,12 +47,13 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
           top: 22px;
           right: 3px;
         }
-        button i {
-          font-size: 26px;
+
+        .badge:hover {
+          color: var(--text-hover-light);
         }
 
-        button:hover .badge {
-          background-color: #ff9191;
+        button i {
+          font-size: 26px;
         }
       `}
     </style>

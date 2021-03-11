@@ -42,7 +42,7 @@ export const CartSummaryInfo: FC<CartSummaryInfoProps> = (props) => {
           font-weight: 600;
         }
         .field span {
-          color: darkred;
+          color: var(--text-primary);
           font-weight: bold;
           font-size: 1rem;
         }
