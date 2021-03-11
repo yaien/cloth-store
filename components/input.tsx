@@ -11,7 +11,7 @@ export const Input = (props: InputProps) => (
     <style jsx>{`
       .field {
         margin: 0.25rem;
-        border-radius: 0.25rem;
+        border-radius: var(--border-radius);
         overflow: hidden;
         border: 1px solid #d1d1d1;
         display: flex;
@@ -19,16 +19,16 @@ export const Input = (props: InputProps) => (
       }
 
       .field label {
-        color: #555;
+        color: var(--text-light);
         font-weight: 500;
         padding: 0.5rem;
-        background-color: #ddd;
+        background-color: var(--bg-primary);
         border-right: 1px solid #d1d1d1;
         text-align: center;
       }
 
       .field input {
-        color: #555;
+        color: var(--text-dark);
         border: none;
         padding: 0.5rem;
         font-weight: 500;
@@ -40,8 +40,8 @@ export const Input = (props: InputProps) => (
       .field input:focus {
         box-shadow: 1 0 0 0 rgba(255, 0, 0, 0.125),
           0 1 1 0 rgba(255, 0, 0, 0.125);
-        outline-color: #a00;
-        border: 1px solid #a00;
+        outline-color: var(--border-primary);
+        border: 1px solid var(--border-primary);
       }
     `}</style>
   </>

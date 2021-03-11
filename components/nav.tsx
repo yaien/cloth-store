@@ -43,7 +43,7 @@ const Nav = (props: NavProps) => {
           padding: 0.5rem;
           display: flex;
           align-items: center;
-          background-color: #ededed;
+          background-color: var(--bg-light);
           justify-content: space-between;
         }
 
@@ -55,6 +55,8 @@ const Nav = (props: NavProps) => {
           align-items: center;
           justify-content: center;
           font-size: 26px;
+          background-color: transparent;
+          color: var(--text-dark);
         }
 
         .menu-toggle-button:active,
@@ -86,12 +88,12 @@ const Nav = (props: NavProps) => {
           font-weight: 500;
           cursor: pointer;
           font-size: 0.8rem;
-          color: #555;
+          color: var(--text-dark);
           margin: 0 0.8rem;
           letter-spacing: 0.125rem;
         }
         .nav-link:hover {
-          color: black;
+          color: var(--text-hover-dark);
         }
         .nav-link:visited {
           color: initial;

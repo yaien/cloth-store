@@ -23,7 +23,7 @@ export const Menu: FC<MenuProps> = ({ open, onToggle }) => {
           height: calc(100% - 73px);
           width: 0;
           z-index: 150;
-          background-color: #ededed;
+          background-color: var(--bg-light);
           box-shadow: 2px 0px 0 0 rgba(0, 0, 0, 0.125);
           transition: all 0.5s ease-in-out;
           top: 73px;
@@ -34,9 +34,9 @@ export const Menu: FC<MenuProps> = ({ open, onToggle }) => {
         .sidebar-link {
           display: block;
           text-transform: uppercase;
-          color: black;
+          color: var(--text-dark);
           text-align: center;
-          border-top: 1px solid #c0c0c0;
+          border-top: 1px solid var(--border-light);
           text-decoration: none;
           font-weight: 500;
           font-size: 0.8rem;
@@ -45,7 +45,7 @@ export const Menu: FC<MenuProps> = ({ open, onToggle }) => {
         }
 
         .sidebar-link :last-child {
-          border-bottom: 1px solid #c0c0c0;
+          border-bottom: 1px solid var(--border-light);
         }
 
         .sidebar.open {
