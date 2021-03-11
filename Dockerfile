@@ -3,4 +3,4 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY ./ ./
-CMD npm run build && npm start -- --port ${PORT:-8080}
+CMD npm start -- --port ${PORT:-8080}

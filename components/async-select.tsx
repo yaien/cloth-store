@@ -2,11 +2,11 @@ import { OptionTypeBase, Styles, Theme } from "react-select";
 import Async, { Props } from "react-select/async";
 
 export interface AsyncSelectProps<OptionType extends OptionTypeBase>
-  extends Props<OptionType> {
+  extends Props<OptionType, false> {
   label?: string;
 }
 
-const styles: Partial<Styles> = {
+const styles: Partial<Styles<OptionTypeBase, false>> = {
   container: (provided, state) => ({
     ...provided,
     flexGrow: 1,
