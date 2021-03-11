@@ -24,7 +24,7 @@ const Nav = (props: NavProps) => {
         </div>
         <div className="grow"></div>
         <div className="nav-links">
-          <button className="nav-link">buscar</button>
+          <a className="nav-link">buscar</a>
           <Link href="/invoices">
             <a className="nav-link">Consulta tu orden</a>
           </Link>
