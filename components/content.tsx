@@ -1,10 +1,14 @@
 import Nav from "./nav";
-import { FC } from "react";
+import { FC, useState } from "react";
+import Menu from "./menu";
 
 const Content: FC = (props) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
   return (
     <>
-      <Nav />
+      <Nav onMenuToggle={toggleMenu} />
+      <Menu open={menuOpen} onToggle={toggleMenu} />
       <main>{props.children}</main>
       <style jsx>
         {`

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import ShoppingButton from "./shopping-button";
-import Menu from "./menu";
 import { useGuest } from "../context/guest";
 
-export interface NavProps {}
+export interface NavProps {
+  onMenuToggle?(): void;
+}
 
 const Nav = (props: NavProps) => {
   const guest = useGuest();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <nav>
       <div className="nav-content">
-        <button className="menu-toggle-button" onClick={toggleMenu}>
+        <button className="menu-toggle-button" onClick={props.onMenuToggle}>
           <i className="material-icons-outlined">menu</i>
         </button>
 
@@ -31,12 +31,12 @@ const Nav = (props: NavProps) => {
         </div>
         <ShoppingButton items={guest.cart.data?.items.length ?? 0} />
       </div>
-      <Menu open={menuOpen} onToggle={toggleMenu}></Menu>
       <style jsx>{`
         nav {
           height: 60px;
           width: 100%;
           position: fixed;
+          z-index: 100;
         }
         .nav-content {
           box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
@@ -44,7 +44,6 @@ const Nav = (props: NavProps) => {
           display: flex;
           align-items: center;
           background-color: #ededed;
-          z-index: 50;
           justify-content: space-between;
         }
 
