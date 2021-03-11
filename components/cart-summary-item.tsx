@@ -14,8 +14,8 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
   const settings = useSettings();
   const total = item.price * item.quantity;
   const picture = settings.cloudinary?.url(item.picture.reference, {
-    width: 120,
-    height: 120,
+    width: 200,
+    height: 200,
     crop: "thumb",
   });
 
@@ -52,7 +52,7 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
                 className="btn"
                 onClick={onDelete.bind(null, item)}
               >
-                <i className="material-icons">clear</i>
+                <i className="material-icons-outlined">clear</i>
                 Eliminar producto
               </button>
             )}
@@ -67,10 +67,10 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
           justify-content: space-between;
         }
         .thumbnail {
-          min-width: 120px;
-          min-height: 120px;
-          max-width: 120px;
-          max-height: 120px;
+          min-width: 100px;
+          min-height: 100px;
+          max-width: 100px;
+          max-height: 100px;
           background-color: #eee;
         }
 
@@ -133,7 +133,7 @@ export const CartSummaryItem: FC<CartSummaryItemProps> = ({
           justify-content: space-between;
         }
         .field .label {
-          font-weight: 700;
+          font-weight: 600;
           margin-right: 0.5rem;
         }
         .field .value {

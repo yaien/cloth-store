@@ -29,23 +29,22 @@ export interface CardItemProps {
   item: Item;
 }
 
-
 export const CardItem = ({ item }: CardItemProps) => {
-  const settings = useSettings()
+  const settings = useSettings();
 
-  if(!settings.ready) {
-    return null
+  if (!settings.ready) {
+    return null;
   }
 
-  if(!item.pictures || !item.pictures.length) {
-    return null
+  if (!item.pictures || !item.pictures.length) {
+    return null;
   }
 
   const img = settings.cloudinary?.url(item.pictures[0].reference, {
     width: 430,
     height: 520,
-    crop: "pad"
-  })
+    crop: "pad",
+  });
 
   return (
     <Link href={"/items/" + item.slug} as={"/items/" + item.slug}>
@@ -55,7 +54,7 @@ export const CardItem = ({ item }: CardItemProps) => {
             <div className="item-overlay-content">
               <div className="item-overlay-background" />
               <div className="item-overlay-link">
-                <i className="material-icons">add</i>
+                <i className="material-icons-outlined">add</i>
               </div>
             </div>
           </div>
@@ -70,7 +69,7 @@ export const CardItem = ({ item }: CardItemProps) => {
             border: 2px solid #d1d1d1;
             overflow: hidden;
             border-radius: 0.5rem;
-            width: 40%;
+            width: 100%;
             margin: 0.5rem;
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.125);
             background-color: #e1e1e1;

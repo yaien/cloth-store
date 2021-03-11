@@ -1,6 +1,5 @@
 import React from "react";
 import NextHead from "next/head";
-import { string } from "prop-types";
 
 interface HeadProps {
   title?: string;
@@ -12,7 +11,7 @@ interface HeadProps {
 const Head = (props: HeadProps) => (
   <NextHead>
     <meta charSet="UTF-8" />
-    <title>{props.title}</title>
+    <title>Chillhood | {props.title}</title>
     <meta name="description" content={props.description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
@@ -20,11 +19,12 @@ const Head = (props: HeadProps) => (
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
     <meta property="og:url" content={props.url} />
@@ -38,12 +38,5 @@ const Head = (props: HeadProps) => (
     <meta property="og:image:height" content="630" />
   </NextHead>
 );
-
-Head.propTypes = {
-  title: string,
-  description: string,
-  url: string,
-  ogImage: string
-};
 
 export default Head;

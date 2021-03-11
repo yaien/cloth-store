@@ -49,7 +49,7 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
           <Col md={2}>
             <Input
               name="name"
-              label="Nombre Completo"
+              label="Nombre"
               required
               value={form.get("name")}
               onChange={form.input("name")}
