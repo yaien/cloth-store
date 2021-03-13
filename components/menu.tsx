@@ -42,6 +42,9 @@ export const Menu: FC<MenuProps> = ({ open, onToggle }) => {
           font-size: 0.8rem;
           padding: 1rem;
           letter-spacing: 0.15rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
 
         .sidebar-link :last-child {
