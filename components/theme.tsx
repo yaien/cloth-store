@@ -27,7 +27,7 @@ export const Theme: FC = () => {
         --bg-dark: #black;
 
         --border-radius: 0.25rem;
-        --font-family: "Open Sans", sans-serif;
+        --font-family: "Roboto", sans-serif;
       }
     `}</style>
   );

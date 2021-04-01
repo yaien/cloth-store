@@ -13,7 +13,6 @@ import { useRouter } from "next/router";
 import { Item } from "chillhood";
 import { useGuest } from "../../context/guest";
 import { NextPageContext } from "next"
-import Collapsible from "react-collapsible";
 
 interface DetailProps {
   item?: Item;
