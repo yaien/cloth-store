@@ -1,11 +1,12 @@
-import { Props } from "react";
+import { FC } from "react";
 
-export const Paragraph = (props: Props<{}>) => (
+export const Paragraph: FC = (props) => (
   <p>
     {props.children}
     <style jsx>{`
       p {
-        padding: 0.25rem;
+        font-size: 0.8rem;
+        padding: 0.5rem;
       }
     `}</style>
   </p>

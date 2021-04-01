@@ -6,12 +6,14 @@ import ShopForm, { ShopFormData } from "../../components/shop-form";
 import Title from "../../components/title";
 import Container from "../../components/container";
 import Paragraph from "../../components/paragraph";
-import store from "../../core/store";
+import SizeMeasures from "../../components/size-measures";
+import store from "../../core/store"
 import { Row, Col } from "../../components/layout";
-import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { Item } from "chillhood";
 import { useGuest } from "../../context/guest";
+import { NextPageContext } from "next"
+import Collapsible from "react-collapsible";
 
 interface DetailProps {
   item?: Item;
@@ -38,15 +40,16 @@ const Detail = ({ item, ...rest }: DetailProps) => {
     <Content>
       <Head title={item.name} description={item.description} />
       <Container>
-        <Title>{item.name}</Title>
         <Container>
           <Row>
             <Col md={2} lg={2} xl={2.5}>
               {item.pictures && <Carousel pictures={item.pictures} />}
             </Col>
             <Col md={2.5} lg={2.5} xl={2.5}>
-              <ShopForm item={item} onSubmit={onSubmit}></ShopForm>
+              <Title left>{item.name}</Title>
+              <ShopForm item={item} onSubmit={onSubmit} />
               <Paragraph>{item.description}</Paragraph>
+              <SizeMeasures sizes={item.sizes} />
             </Col>
           </Row>
         </Container>
