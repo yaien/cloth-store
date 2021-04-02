@@ -27,6 +27,7 @@ const Content: FC = (props) => {
             background-color: var(--bg-light);
             height: 100%;
             font-family: var(--font-family);
+            font-weight: var(--font-weight);
           }
         `}
       </style>

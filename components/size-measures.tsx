@@ -43,12 +43,12 @@ export const SizeMeasures: FC<SizeMeasuresProps> = ({ sizes }) => {
           text-align: left;
           text-transform: uppercase;
           font-size: 0.6rem;
-          font-weight: 500;
+          font-weight: var(--font-weight);
           padding: 0.3rem;
         }
         td {
           padding: 0.3rem;
-          font-weight: 400;
+          font-weight: var(--font-weight);
           font-size: 0.6rem;
         }
 

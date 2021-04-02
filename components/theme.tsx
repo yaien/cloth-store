@@ -28,6 +28,7 @@ export const Theme: FC = () => {
 
         --border-radius: 0.25rem;
         --font-family: "Roboto", sans-serif;
+        --font-weight: 400;
       }
     `}</style>
   );
