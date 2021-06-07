@@ -1,7 +1,4 @@
 import { FC, useRef, useState } from "react";
-import cs from "classnames";
-import { CSSTransition } from "react-transition-group";
-import { VideoTag } from "cloudinary-core";
 
 export interface CollapsibleProps {
   label?: string;
