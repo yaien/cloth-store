@@ -39,6 +39,10 @@ export const Collapsible: FC<CollapsibleProps> = (props) => {
         .head {
           padding: 0.5rem;
           border-bottom: 1px solid var(--border-light);
+          cursor: pointer;
+          font-weight: 400;
+          font-size: 0.8rem;
+          text-transform: uppercase;
         }
 
         .content {
