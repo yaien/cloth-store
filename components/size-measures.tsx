@@ -56,9 +56,7 @@ export const SizeMeasures: FC<SizeMeasuresProps> = ({ sizes }) => {
           border-bottom: 1px solid var(--border-light);
         }
 
-        tr:first-child {
-          border-top: 1px solid var(--border-light);
-        }
+       
         
       `}</style>
     </div>

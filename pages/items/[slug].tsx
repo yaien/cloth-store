@@ -1,5 +1,6 @@
 import Head from "../../components/head";
 import Content from "../../components/content";
+import Collapsible from "../../components/collapsible";
 import Error from "next/error";
 import Carousel from "../../components/carousel";
 import ShopForm, { ShopFormData } from "../../components/shop-form";
@@ -46,9 +47,13 @@ const Detail = ({ item, ...rest }: DetailProps) => {
             </Col>
             <Col md={2.5} lg={2.5} xl={2.5}>
               <Title left>{item.name}</Title>
-              <ShopForm item={item} onSubmit={onSubmit} />
-              <Paragraph>{item.description}</Paragraph>
-              <SizeMeasures sizes={item.sizes} />
+                <ShopForm item={item} onSubmit={onSubmit} />
+                <Collapsible label="DESCRIPCIÓN">
+                  <Paragraph>{item.description}</Paragraph>
+                </Collapsible>
+                <Collapsible label="GUÍA DE TALLAS">
+                  <SizeMeasures sizes={item.sizes} />
+                </Collapsible>
             </Col>
           </Row>
         </Container>
