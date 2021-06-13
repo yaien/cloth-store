@@ -1,7 +1,7 @@
 import Input from "./input";
 import Button from "./button";
 import useForm from "../context/hooks/use-form";
-import { FC, FormEvent } from "react";
+import { FC, FormEvent, useState } from "react";
 import { City, Shipping } from "chillhood";
 import { Col, Row } from "./layout";
 import { Subtitle } from "./title";
@@ -16,6 +16,7 @@ export interface CheckoutFormProps {
 
 export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
   const form = useForm<Shipping>();
+  const [accepted, setAccepted] = useState(false)
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -98,11 +99,39 @@ export const CheckoutForm: FC<CheckoutFormProps> = (props) => {
             />
           </Col>
         </Row>
-        <Button type="submit" block>
+        <Row>
+          <Col md={1}>
+            <div className="terms">
+            <input type="checkbox" onChange={e => setAccepted(e.target.checked)}/> 
+              <a href="/terms">Acepta <span>Términos y condiciones</span> y <span>Política de tratamiento de datos</span></a>
+            </div>
+          </Col>
+        </Row>
+        <Button type="submit" block disabled={!accepted}>
           Proceder al pago
         </Button>
       </form>
       <style jsx>{`
+
+        .terms {
+          margin: 0.5rem;
+          font-size: 0.8rem;
+          font-weight: 300;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+        }
+
+        .terms span {
+          text-decoration: underline;
+        }
+        .terms a {
+          text-decoration: none;
+        }
+
+        .terms input {
+          margin: 0 0.5rem;
+        }
         .form {
           margin: 1rem;
         }
