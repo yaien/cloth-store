@@ -92,7 +92,7 @@ const Nav = (props: NavProps) => {
           letter-spacing: 0.125rem;
         }
         .nav-link:hover {
-          color: var(--text-hover-dark);
+          color: var(--text-hover-light);
         }
         .nav-link:visited {
           color: initial;
