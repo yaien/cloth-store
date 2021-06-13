@@ -46,6 +46,11 @@ const Button = ({ block, ...props }: ButtonProps) => {
           width: 99%;
           display: block;
         }
+
+        button[disabled], button:disabled {
+          color: var(--text-hover-primary);
+          background-color: var(--bg-hover-light);
+        }
       `}</style>
     </button>
   );

@@ -19,7 +19,7 @@ const Nav = (props: NavProps) => {
 
         <div className="nav-logo">
           <Link href="/">
-            <h1>Chillhood</h1>
+            <img height="54px" src="/static/logo.png" alt="Chillhood"></img>
           </Link>
         </div>
         <div className="grow"></div>
