@@ -31,6 +31,7 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
           color: var(--text-hover-light);
         }
 
+
         .badge {
           background-color: var(--bg-primary);
           padding: 0.2em 0.5em;
@@ -48,8 +49,8 @@ const ShoppingButton = (props: ShoppingButtonProps) => (
           right: 3px;
         }
 
-        .badge:hover {
-          color: var(--text-hover-light);
+        button:hover .badge, .badge:hover {
+          background-color: var(--text-hover-light);
         }
 
         button i {
