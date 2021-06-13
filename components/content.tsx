@@ -2,6 +2,7 @@ import Nav from "./nav";
 import { FC, useState } from "react";
 import Menu from "./menu";
 import { Theme } from "./theme";
+import Footer from "./footer";
 
 const Content: FC = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,6 +13,7 @@ const Content: FC = (props) => {
       <Nav onMenuToggle={toggleMenu} />
       <Menu open={menuOpen} onToggle={toggleMenu} />
       <main>{props.children}</main>
+      <Footer/>
       <style jsx>
         {`
           main {

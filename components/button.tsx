@@ -4,10 +4,10 @@ import { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
-> & { block: boolean };
+> & { block?: boolean, left?: boolean };
 
-const Button = ({ block, ...props }: ButtonProps) => {
-  const classes = cs({ block: block });
+const Button = ({ block, left, ...props }: ButtonProps) => {
+  const classes = cs({ block, left });
   return (
     <button {...props} className={classes}>
       {props.children}
@@ -45,6 +45,10 @@ const Button = ({ block, ...props }: ButtonProps) => {
           margin: auto;
           width: 99%;
           display: block;
+        }
+
+        button.left {
+          text-align: left;
         }
 
         button[disabled], button:disabled {

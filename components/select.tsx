@@ -22,17 +22,18 @@ export const Select = (props: SelectProps) => (
         margin: 0.25rem;
         border-radius: 0.25rem;
         overflow: hidden;
-        border: 1px solid #d1d1d1;
         display: flex;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 0.8rem;
       }
 
       .field label {
-        color: var(--text-light);
+        color: var(--text-primary);
         font-weight: 500;
         padding: 0.5rem;
-        background-color: var(--bg-primary);
-        border-right: 1px solid var(--border-primary);
-        text-align: center;
+        text-align: left;
+        width: 65px;
       }
 
       .field select {
@@ -45,6 +46,12 @@ export const Select = (props: SelectProps) => (
         font-size: 1rem;
         background: var(--bg-light);
         margin: 0px;
+        border-bottom: 1px solid var(--border-secondary);
+      }
+
+      select:active, select:focus {
+        outline: none;
+        border-bottom: 1px solid var(--border-secondary);
       }
     `}</style>
   </>

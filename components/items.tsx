@@ -50,14 +50,6 @@ export const CardItem = ({ item }: CardItemProps) => {
     <Link href={"/items/" + item.slug} as={"/items/" + item.slug}>
       <div className="item">
         <div className="item-picture">
-          <div className="item-overlay">
-            <div className="item-overlay-content">
-              <div className="item-overlay-background" />
-              <div className="item-overlay-link">
-                <i className="material-icons-outlined">add</i>
-              </div>
-            </div>
-          </div>
           <img src={img} alt="" />
         </div>
         <div className="item-info">
@@ -66,18 +58,15 @@ export const CardItem = ({ item }: CardItemProps) => {
         </div>
         <style jsx>{`
           .item {
-            border: 2px solid var(--border-secondary);
             overflow: hidden;
             border-radius: 0.5rem;
             width: 100%;
             margin: 0.5rem;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.125);
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-light);
             cursor: pointer;
           }
 
           .item:hover {
-            box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
           }
 
           .item-picture {
@@ -91,18 +80,22 @@ export const CardItem = ({ item }: CardItemProps) => {
           }
           .item-info {
             padding: 0.25rem;
-            text-align: center;
+            text-align: left;
             heigth: 100%;
           }
 
           .item-price {
             color: var(--text-primary);
-            font-weight: bold;
-            font-size: 1rem;
+            letter-spacing: 0.125rem;
+            font-size: 0.8rem;
+            font-weight: 300;
           }
           .item-name {
-            margin: 0.5rem;
-            font-size: 1rem;
+            margin-bottom: 0.125rem;
+            letter-spacing: 0.125rem;
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
           }
 
           .item-overlay {

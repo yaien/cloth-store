@@ -13,18 +13,19 @@ export const Input = (props: InputProps) => (
         margin: 0.25rem;
         border-radius: var(--border-radius);
         overflow: hidden;
-        border: 1px solid #d1d1d1;
         display: flex;
         text-overflow: clip;
+        font-size: 0.8rem;
+        font-weight: 400;
       }
 
       .field label {
-        color: var(--text-light);
+        color: var(--text-primary);
         font-weight: 500;
         padding: 0.5rem;
-        background-color: var(--bg-primary);
-        border-right: 1px solid #d1d1d1;
-        text-align: center;
+        text-align: left;
+        text-transform: uppercase;
+        width: 65px;
       }
 
       .field input {
@@ -35,13 +36,16 @@ export const Input = (props: InputProps) => (
         font-size: 1rem;
         flex-grow: 1;
         box-sizing: border-box;
+        border-bottom: 1px solid var(--border-secondary);
       }
 
-      .field input:focus {
-        box-shadow: 1 0 0 0 rgba(255, 0, 0, 0.125),
-          0 1 1 0 rgba(255, 0, 0, 0.125);
-        outline-color: var(--border-primary);
-        border: 1px solid var(--border-primary);
+      input:disabled, input[disabled] {
+        background-color: var(--bg-light);
+      }
+
+      input:focus, input:active {
+        outline: none;
+        border-bottom: 1px solid var(--border-primary);
       }
     `}</style>
   </>

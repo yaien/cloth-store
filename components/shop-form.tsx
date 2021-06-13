@@ -42,7 +42,7 @@ const ShopForm = ({ item, onSubmit }: ShopFormProps) => {
   }, [item, quantity]);
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} className="margin-bottom">
       <Select
         label="Talla"
         name="size"
@@ -65,9 +65,21 @@ const ShopForm = ({ item, onSubmit }: ShopFormProps) => {
         onChange={onQuantityChange}
       />
       <Input label="Total" value={total} disabled />
+      <div className="margin-top">
       <Button type="submit" block>
         Añadir al carrito
       </Button>
+      </div>
+      
+        <style jsx>{`
+        .margin-bottom {
+          margin-bottom: 1rem;
+        }
+
+        .margin-top {
+          margin-top: 1rem;
+        }
+        `}</style>
     </form>
   );
 };

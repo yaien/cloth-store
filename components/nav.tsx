@@ -24,7 +24,7 @@ const Nav = (props: NavProps) => {
         </div>
         <div className="grow"></div>
         <div className="nav-links">
-          <a className="nav-link">buscar</a>
+          <a className="nav-link" href="#items">comprar</a>
           <Link href="/invoices">
             <a className="nav-link">Consulta tu orden</a>
           </Link>
@@ -39,7 +39,6 @@ const Nav = (props: NavProps) => {
           z-index: 100;
         }
         .nav-content {
-          box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
           padding: 0.5rem;
           display: flex;
           align-items: center;
@@ -93,7 +92,7 @@ const Nav = (props: NavProps) => {
           letter-spacing: 0.125rem;
         }
         .nav-link:hover {
-          color: var(--text-hover-dark);
+          color: var(--text-hover-light);
         }
         .nav-link:visited {
           color: initial;

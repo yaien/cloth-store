@@ -5,6 +5,7 @@ import Banner from "../components/banner";
 import ItemList from "../components/items";
 import store from "../core/store";
 import { Item } from "chillhood";
+import Mindset from "../components/mindset";
 
 interface HomeProps {
   items: Item[];
@@ -15,7 +16,10 @@ const Home = ({ items }: HomeProps) => {
     <Content>
       <Head title="Inicio" />
       <Banner />
-      <ItemList items={items} />
+      <Mindset/>
+      <div id="items">
+        <ItemList items={items} />
+      </div>
     </Content>
   );
 };
