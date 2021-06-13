@@ -6,7 +6,7 @@ const Footer: FC = () => {
         <div className="info">
           <div className="copyright">©CHILLHOOD APPAREL</div>
           <div className="social-media">
-            <a href="https://www.instagram.com/chillhoodapparel">
+            <a href="https://www.instagram.com/chillhoodapparel" target="_blank">
               <img src="/static/ig.png" alt="" />
             </a>
             <a href="https://wa.link/vkokp1" target="_blank">
