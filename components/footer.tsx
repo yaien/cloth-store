@@ -25,8 +25,10 @@ const Footer: FC = () => {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-direction: column;
           }  
           .info {
+            margin-top: 0.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +62,22 @@ const Footer: FC = () => {
           }
 
           .payment-media img {
-            height: 100px;
+            height: 80px;
+          }
+
+          @media (min-width: 640px) {
+            footer {
+              flex-direction: row;
+            }
+
+            .info {
+              margin-top: 0;
+            }
+
+            .payment-media img {
+              height: 100px;
+            }
+
           }
       `}</style>
     </footer>
