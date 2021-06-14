@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 
 export const Mindset = () => (
   <div className="mindset">
-    <Marquee direction="right" gradient={false}>
+    <Marquee gradient={false}>
       <div className="phrase">
         SOMOS LO QUE VESTIMOS CUANDO EXTERIORIZAMOS IDEAS POR MEDIO DE LO QUE
         USAMOS
