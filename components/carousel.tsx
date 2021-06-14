@@ -9,7 +9,7 @@ export interface CarouselProps {
 const Carousel: FC<CarouselProps> = (props) => {
   const settings = useSettings();
   const [current, setCurrent] = useState<Picture>(props.pictures[0]);
-  const [show, setShow] = useState(3);
+  const [show, setShow] = useState(5);
   const [start] = useState(0);
 
   function thumbnail(reference: string) {
