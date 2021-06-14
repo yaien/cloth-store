@@ -1,6 +1,7 @@
 import Link from "next/link";
 import useSettings from "../context/hooks/use-settings";
 import { Item } from "chillhood";
+import { useEffect, useState } from "react";
 
 export interface ItemList {
   items: Item[];
@@ -31,6 +32,11 @@ export interface CardItemProps {
 
 export const CardItem = ({ item }: CardItemProps) => {
   const settings = useSettings();
+  const [current, setCurrent] = useState<string>()
+
+  useEffect(() => {
+    
+  }, [])
 
   if (!settings.ready) {
     return null;
@@ -40,17 +46,32 @@ export const CardItem = ({ item }: CardItemProps) => {
     return null;
   }
 
-  const img = settings.cloudinary?.url(item.pictures[0].reference, {
-    width: 430,
-    height: 520,
-    crop: "pad",
-  });
+  let img: string | undefined
 
+  if (item.pictures.length > 0) {
+    img = settings.cloudinary?.url(item.pictures[0].reference, {
+      width: 430,
+      height: 520,
+      crop: "pad",
+    });
+  }
+
+  let hover: string | undefined
+  if(item.pictures.length > 1) {
+    hover = settings.cloudinary?.url((item.pictures[1]).reference, {
+      width: 430,
+      height: 520,
+      crop: "pad",
+    })
+  }
+
+
+  
   return (
     <Link href={"/items/" + item.slug} as={"/items/" + item.slug}>
       <div className="item">
-        <div className="item-picture">
-          <img src={img} alt="" />
+        <div className="item-picture" onMouseEnter={() => setCurrent(hover)} onMouseLeave={() => setCurrent(img)}>
+          <img src={current || img} alt="" />
         </div>
         <div className="item-info">
           <h4 className="item-name">{item.name}</h4>
